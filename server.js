@@ -16,6 +16,8 @@ server.on('upgrade', (req, socket, head) => {
   if (req.url !== '/app53') return socket.destroy();
 
   wss.handleUpgrade(req, socket, head, (ws) => {
+    wss.emit('connection', ws, req); // 👈 ¡Esto faltaba!
+    
     const tunnel = net.connect(VPS_PORT, VPS_HOST, () => {
       console.log('Conectado al VPS');
     });
