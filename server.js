@@ -1,4 +1,4 @@
-import http from 'http';
+import https from 'https';
 import net from 'net';
 import { WebSocketServer } from 'ws';
 
